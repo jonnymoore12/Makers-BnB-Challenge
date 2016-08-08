@@ -1,22 +1,9 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>Makers BnB</title>
-  </head>
-  <body>
-    <form action="/sessions" method="post">
-      <label for="email"> email: </label>
-      <input name="email" type="email"/>
+<form action="/sessions" method="post">
+  <label for="email"> email: </label>
+  <input name="email" type="email"/>
 
-      <label for="password"> password: </label>
-      <input name="password" type="password" />
+  <label for="password"> password: </label>
+  <input name="password" type="password" />
 
-      <button value="Sign Up" type="submit"> Sign up! </button>
-    </form>
-
-    <% if current_user %>
-      Welcome back <%= current_user.email %>!
-    <% end %>
-  </body>
-</html>
+  <button value="Log In" type="submit"> Sign up! </button>
+</form>

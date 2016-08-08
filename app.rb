@@ -1,11 +1,14 @@
 ENV['RACK_ENV'] ||= "development"
 
 require 'sinatra/base'
+require 'sinatra/flash'
 require_relative 'datamapper_setup'
 
 class BnB < Sinatra::Base
   enable :sessions
   set :session_secret, 'super_secret'
+
+  register Sinatra::Flash
 
   helpers do
     def current_user
@@ -17,12 +20,22 @@ class BnB < Sinatra::Base
     erb :index
   end
 
+  get '/spaces' do
+    erb :'spaces/index'
+  end
+
   post '/users' do
-    user = User.create(email: params[:email],
+    user = User.new(email: params[:email],
                 password: params[:password],
                 password_confirmation: params[:password_confirmation])
-    session[:user_id] = user.id
-    redirect '/'
+    if user.save
+      session[:user_id] = user.id
+      flash[:notice] = "Welcome, #{user.email}"
+      redirect '/spaces'
+    else
+      flash.now[:error] = user.errors.full_messages
+      erb :index
+    end
   end
 
   get '/sessions/new' do
@@ -30,6 +43,7 @@ class BnB < Sinatra::Base
   end
 
   post '/sessions' do
+    user = User.first(email: params[:email])
     session[:user_id] = user.id
     redirect '/spaces'
   end
