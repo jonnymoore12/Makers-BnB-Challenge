@@ -5,21 +5,18 @@
     <title>Makers BnB</title>
   </head>
   <body>
-    <form action="/users" method="post">
+    <form action="/sessions" method="post">
       <label for="email"> email: </label>
       <input name="email" type="email"/>
 
       <label for="password"> password: </label>
       <input name="password" type="password" />
 
-      <label for="password_confirmation"> password confirmation:</label>
-      <input name="password_confirmation" type="password" />
-
       <button value="Sign Up" type="submit"> Sign up! </button>
     </form>
 
     <% if current_user %>
-      Welcome, <%= current_user.email %>
+      Welcome back <%= current_user.email %>!
     <% end %>
   </body>
 </html>
