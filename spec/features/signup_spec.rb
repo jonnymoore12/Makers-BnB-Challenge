@@ -1,4 +1,3 @@
-
 feature "#Signup" do
   scenario "user can sign up" do
     visit '/'
