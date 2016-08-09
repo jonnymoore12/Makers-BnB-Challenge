@@ -15,6 +15,9 @@ class User
   validates_format_of :email, as: :email_address
   validates_presence_of :password, :password_confirmation
 
+
+  has n, :spaces
+
   def password=(new_password)
     @password = new_password
     self.password_digest = BCrypt::Password.create(new_password)

@@ -28,4 +28,19 @@ feature "Listing a space" do
     expect(page).to have_content "Available to must not be blank"
     expect(page).to have_content "Available from must not be blank"
   end
+
+  scenario "listed space belongs to user" do
+    sign_up
+    create_space
+    user = User.first
+    expect(user.spaces).to include(Space.first)
+  end
+
+  scenario "multiple listed spaces belong to user" do
+    sign_up
+    create_space
+    create_space
+    user = User.first
+    expect(user.spaces).to include(Space.first, Space.last)
+  end
 end

@@ -23,6 +23,7 @@ class BnB < Sinatra::Base
 
   get '/spaces' do
     @spaces = Space.all
+
     erb :'spaces/index'
   end
 
@@ -35,7 +36,9 @@ class BnB < Sinatra::Base
                         description: params[:description],
                         price: params[:price],
                         available_from: params[:available_from],
-                        available_to: params[:available_to])
+                        available_to: params[:available_to],)
+    space.user_id = current_user.id
+
     if space.save
       flash[:notice] = "Your space was successfully listed"
       redirect '/spaces'
