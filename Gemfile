@@ -11,7 +11,7 @@ source "https://rubygems.org"
   gem "bcrypt"
 
 
-group :test do
+group :test, :development do
   gem "rspec-sinatra"
   gem "rspec"
   gem "capybara"
