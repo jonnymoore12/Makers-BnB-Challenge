@@ -3,6 +3,7 @@ ENV['RACK_ENV'] ||= "development"
 require 'sinatra/base'
 require 'sinatra/flash'
 require_relative 'datamapper_setup'
+require "pry"
 
 class BnB < Sinatra::Base
   enable :sessions
@@ -22,7 +23,30 @@ class BnB < Sinatra::Base
   end
 
   get '/spaces' do
+    @spaces = Space.all
+
     erb :'spaces/index'
+  end
+
+  get '/spaces/new' do
+    erb :'spaces/new'
+  end
+
+  post '/spaces' do
+    space = Space.new(name: params[:name],
+                        description: params[:description],
+                        price: params[:price],
+                        available_from: params[:available_from],
+                        available_to: params[:available_to],)
+    space.user_id = current_user.id
+
+    if space.save
+      flash[:notice] = "Your space was successfully listed"
+      redirect '/spaces'
+    else
+      flash.now[:error] = space.errors.full_messages
+      erb :'spaces/new'
+    end
   end
 
   post '/users' do
