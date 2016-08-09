@@ -8,6 +8,7 @@ require "pry"
 class BnB < Sinatra::Base
   enable :sessions
   set :session_secret, 'super_secret'
+  use Rack::MethodOverride
 
   register Sinatra::Flash
 
@@ -75,6 +76,12 @@ class BnB < Sinatra::Base
       flash.now[:error] = ['Password or email was incorrect']
       erb :login
     end
+  end
+
+  delete '/sessions' do
+    session[:user_id] = nil
+    flash.keep[:logout] = 'Goodbye!'
+    redirect '/'
   end
 
   # start the server if ruby file executed directly
