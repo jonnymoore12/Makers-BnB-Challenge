@@ -7,6 +7,16 @@
   <body>
     <% if current_user %>
       <p>You're logged in as <%= current_user.email %>!</p>
+
+      <form action='/sessions' method='post'>
+        <input type="hidden" name="_method" value="delete" />
+        <button type="submit" value="Log Out"> Log Out </button>
+      </form>
+
+    <% end %>
+
+    <% if flash[:logout] %>
+      <div id="logout"><%= flash[:logout] %> </div>
     <% end %>
 
     <% if flash[:notice] %>
