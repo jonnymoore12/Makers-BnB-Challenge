@@ -24,6 +24,19 @@ class BnB < Sinatra::Base
     erb :'spaces/index'
   end
 
+  get '/spaces/new' do
+    erb :'spaces/new'
+  end
+
+  post '/spaces' do
+    space = Space.create(name: params[:name],
+                        description: params[:description],
+                        price: params[:price],
+                        available_from: params[:availabe_from],
+                        available_to: params[:available_to])
+    redirect '/spaces'
+  end
+
   post '/users' do
     user = User.new(email: params[:email],
                 password: params[:password],

@@ -10,9 +10,9 @@ feature "Listing a space" do
     visit '/spaces/new'
     fill_in :name, with: "Victoria Gardens"
     fill_in :description, with: "Some nice shit"
-    fill_in :price_per_night, with: "89.99"
-    fill_in :available_from, with: "15/05/15"
-    fill_in :available_to, with: "24/05/15"
+    fill_in :price, with: "89.99"
+    fill_in :available_from, with: "15/05/2015"
+    fill_in :available_to, with: "24/05/2015"
     click_button "List my Space"
 
     expect(current_path).to eq "/spaces"
