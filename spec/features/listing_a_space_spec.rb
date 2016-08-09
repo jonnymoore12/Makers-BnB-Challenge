@@ -7,15 +7,18 @@ feature "Listing a space" do
   end
 
   scenario "can list a space" do
-    visit '/spaces/new'
-    fill_in :name, with: "Victoria Gardens"
-    fill_in :description, with: "Some nice shit"
-    fill_in :price, with: "89.99"
-    fill_in :available_from, with: "15/05/2015"
-    fill_in :available_to, with: "24/05/2015"
-    click_button "List my Space"
-
+    create_space
     expect(current_path).to eq "/spaces"
-    expect(page).to have_content "Victoria Gardens"
+    within('ul#space-list') do
+      expect(page).to have_content "Victoria Gardens"
+    end
+  end
+
+  scenario "all but 'description' fields are required" do
+    create_space(name: nil, price: nil, available_from: nil, available_to: nil)
+    expect(page).to have_content "Name must not be blank"
+    expect(page).to have_content "Price must not be blank"
+    expect(page).to have_content "Available to must not be blank"
+    expect(page).to have_content "Available from must not be blank"
   end
 end

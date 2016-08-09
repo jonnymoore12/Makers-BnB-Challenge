@@ -2,10 +2,10 @@ class Space
   include DataMapper::Resource
 
   property :id,              Serial
-  property :name,            String
+  property :name,            String, required: true
   property :description,     String
-  property :price,           Float
-  property :available_from,  Time
-  property :available_to,    Time
+  property :price,           Float, required: true
+  property :available_from,  Time, required: true
+  property :available_to,    Time, required: true
 
 end
