@@ -6,7 +6,7 @@
   </head>
   <body>
     <% if current_user %>
-      Welcome back <%= current_user.email %>!
+      <p>You're logged in as <%= current_user.email %>!</p>
     <% end %>
 
     <% if flash[:notice] %>
