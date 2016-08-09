@@ -5,7 +5,7 @@ feature '#Login' do
     expect(page).to have_content("Welcome back example@email.com!")
   end
 
-  scenario 'user cannot log in with an empty email' do
+  xscenario 'user cannot log in with an empty email' do
     log_in(email: "")
     expect(page).to have_content "Email cannot be blank"
   end
