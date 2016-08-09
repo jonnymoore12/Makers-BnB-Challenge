@@ -43,13 +43,12 @@ class BnB < Sinatra::Base
   end
 
   post '/sessions' do
-    authenticated_user = User.authenticate(email: params[:email],
-                                    password: params[:password])
-    if authenticated_user == user
+    user = User.authenticate(params[:email], params[:password])
+    if user
       session[:user_id] = user.id
       redirect '/spaces'
     else
-      flash.now[:error] = 'Password or email was incorrect'
+      flash.now[:error] = ['Password or email was incorrect']
       erb :login
     end
   end
