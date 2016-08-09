@@ -9,5 +9,6 @@ class Space
   property :available_to,    Time, required: true
 
   belongs_to :user
+  has n, :requests
 
 end
