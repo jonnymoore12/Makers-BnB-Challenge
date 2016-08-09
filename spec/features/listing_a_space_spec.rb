@@ -6,7 +6,13 @@ feature "Listing a space" do
     expect(current_path).to eq "/spaces/new"
   end
 
+  scenario "cannot add a space unless logged in" do
+    visit '/spaces/new'
+    expect(page).to have_content "Must be logged in to add a Space"
+  end
+
   scenario "can list a space" do
+    sign_up
     create_space
     expect(current_path).to eq "/spaces"
     within('ul#space-list') do
@@ -15,6 +21,7 @@ feature "Listing a space" do
   end
 
   scenario "all but 'description' fields are required" do
+    sign_up
     create_space(name: nil, price: nil, available_from: nil, available_to: nil)
     expect(page).to have_content "Name must not be blank"
     expect(page).to have_content "Price must not be blank"
