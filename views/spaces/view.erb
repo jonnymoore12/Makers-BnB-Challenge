@@ -5,6 +5,9 @@
 <%= @space.available_to %><br>
 
 <form action="/requests" method="post">
-  <!-- TODO: calendar -->
+  <label for="start_date">Pick a night: </label>
+  <input name="start_date" type="date" value="start_date">
+  <br>
   <button type="submit" value="Request to Book">Request to Book</button>
 </form>
+<br>
