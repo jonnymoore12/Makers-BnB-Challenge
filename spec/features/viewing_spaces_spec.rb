@@ -21,4 +21,9 @@ feature "Viewing spaces" do
     visit "/spaces/#{space_id}"
     expect(page).to have_content "Jonny's love island"
   end
+  scenario "there's a 'Request to Book' button on page" do
+    visit '/spaces'
+    click_link "Victoria Gardens"
+    expect(page).to have_button("Request to Book")
+  end
 end
