@@ -93,13 +93,17 @@ class BnB < Sinatra::Base
 
   post '/requests' do
     request = Request.new(date: params[:start_date],
-                          status: "pending")
+                          status: "pending",
+                          guest_id: 2,
+                          host_id: 2,
+                          space_id: 4)
+                          # hard coded id's. Needs replacing
     if request.save
-      flash.now[:notice] = ["Thanks, your booking request will be processed soon!"]
-      redirect '/requests'
+      flash.now[:notice] = ["Thanks, your booking request is pending!"]
+      # redirect '/spaces'
     else
       flash.now[:error] = ["Please, pick a date!"]
-      redirect '/spaces'
+      # erb :'spaces/view'  #loses session information!!!!!
     end
   end
 
