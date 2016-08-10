@@ -18,7 +18,7 @@ module SessionHelpers
   def create_space(name: "Victoria Gardens",
                   description: "some cool stuff",
                   price: "89.99",
-                  available_from: "15/05/2015",
+                  available_from: "15/05/2017",
                   available_to: "24/05/2015")
     visit '/spaces/new'
     fill_in :name, with: name
