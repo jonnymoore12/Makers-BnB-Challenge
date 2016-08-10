@@ -2,8 +2,8 @@ module SpacesHelpers
   def create_space(name: "Victoria Gardens",
                   description: "some cool stuff",
                   price: "89.99",
-                  available_from: "15/05/2015",
-                  available_to: "24/05/2015")
+                  available_from: "15/05/2019",
+                  available_to: "24/05/2019")
     visit '/spaces/new'
     fill_in :name, with: name
     fill_in :description, with: description
