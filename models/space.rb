@@ -15,7 +15,7 @@ class Space
                           :method => :in_the_past?
 
   def in_the_past?
-    if Time.new(@available_from.to_s) >= Time.now
+    if @available_from.to_s >= Time.now.to_s
       return true
     else
       return [false, "Space cannot be available in the past"]
