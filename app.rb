@@ -41,6 +41,7 @@ class BnB < Sinatra::Base
                         available_from: params[:available_from],
                         available_to: params[:available_to],)
     space.user_id = current_user.id
+
     if space.save
       flash[:notice] = "Your space was successfully listed"
       redirect '/spaces'
