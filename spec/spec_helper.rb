@@ -9,11 +9,13 @@ require 'capybara/rspec'
 require 'rspec'
 require 'database_cleaner'
 require_relative 'helpers/sessions'
+require_relative 'helpers/spaces'
 
 Capybara.app = BnB
 
 RSpec.configure do |config|
   config.include SessionHelpers
+  config.include SpacesHelpers
   config.include Capybara::DSL
 
   config.expect_with :rspec do |expectations|
