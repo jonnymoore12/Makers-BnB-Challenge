@@ -11,4 +11,15 @@ class Space
   belongs_to :user
   has n, :requests
 
+  validates_with_method :available_from,
+                          :method => :in_the_past?
+
+  def in_the_past?
+    if @available_from.to_s >= Time.now.to_s
+      return true
+    else
+      return [false, "Space cannot be available in the past"]
+    end
+  end
+
 end

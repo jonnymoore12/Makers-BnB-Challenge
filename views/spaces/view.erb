@@ -1,0 +1,10 @@
+<h1><%= @space.name %><br></h1>
+<%= @space.description %><br>
+<%= @space.price %><br>
+<%= @space.available_from %><br>
+<%= @space.available_to %><br>
+
+<form action="/requests" method="post">
+  <!-- TODO: calendar -->
+  <button type="submit" value="Request to Book">Request to Book</button>
+</form>

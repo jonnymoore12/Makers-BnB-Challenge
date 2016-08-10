@@ -13,6 +13,8 @@
         <button type="submit" value="Log Out"> Log Out </button>
       </form>
 
+    <% else %>
+      <a href="/sessions/new"> Log In </a>
     <% end %>
 
     <% if flash[:logout] %>

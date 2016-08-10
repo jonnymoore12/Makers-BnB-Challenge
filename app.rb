@@ -3,6 +3,9 @@ ENV['RACK_ENV'] ||= "development"
 require 'sinatra/base'
 require 'sinatra/flash'
 require_relative 'datamapper_setup'
+if ENV['RACK_ENV'] == 'test'
+  require 'pry'
+end
 
 class BnB < Sinatra::Base
   enable :sessions
@@ -46,6 +49,11 @@ class BnB < Sinatra::Base
       flash.now[:error] = space.errors.full_messages
       erb :'spaces/new'
     end
+  end
+
+  get '/spaces/:id' do
+    @space = Space.get(params[:id])
+    erb :'spaces/view'
   end
 
   post '/users' do
