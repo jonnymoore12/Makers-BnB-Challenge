@@ -48,6 +48,10 @@ class BnB < Sinatra::Base
     end
   end
 
+  get '/spaces/1' do
+    erb :'spaces/1'
+  end
+
   post '/users' do
     user = User.new(email: params[:email],
                 password: params[:password],
