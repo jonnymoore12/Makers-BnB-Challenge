@@ -17,4 +17,8 @@ feature '#Login' do
     expect(page).not_to have_content("You're logged in")
   end
 
+  scenario 'There should be a "log in" button when not logged in' do
+    visit '/'
+    expect(page).to have_link "Log In"
+  end
 end
