@@ -43,4 +43,11 @@ feature "Listing a space" do
     user = User.first
     expect(user.spaces).to include(Space.first, Space.last)
   end
+
+  scenario "space cannot be listed as available_from a past date" do
+    sign_up
+    create_space(available_from:(Date.today -1))
+    expect(page).to have_content "Space cannot be available in the past"
+  end
+
 end
