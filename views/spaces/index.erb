@@ -7,11 +7,9 @@
 <ul id="space-list">
   <% @spaces.each do |space| %>
     <li>
-      Name: <%= space.name %> <br>
+      <h2><a href="/spaces/<%= space.id %>"><%= space.name %></a></h2>
       Description: <%= space.description %><br>
       Price per night: £<%= space.price %><br>
-      Available from: <%= space.available_from %><br>
-      Available to: <%= space.available_to %>
     </li>
   <% end %>
 </ul>
