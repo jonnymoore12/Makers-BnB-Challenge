@@ -37,7 +37,9 @@ class Space
   private
 
   def in_the_past?(date)
-    if date.to_s >= Time.now.to_s
+    if date == ""
+      return true
+    elsif date.strftime("%d/%m/%Y") >= Time.now.strftime("%d/%m/%Y")
       return true
     else
       return [false, "Space cannot be available in the past"]
