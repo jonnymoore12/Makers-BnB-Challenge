@@ -114,7 +114,26 @@ class BnB < Sinatra::Base
   get '/requests' do
     @received_requests = current_user.requests_received
     @sent_requests = current_user.requests_sent
-    erb :requests
+    erb :'requests/index'
+  end
+
+  get '/requests/:id' do
+    @individual_request = Request.get(params[:id])
+    erb :'requests/view'
+  end
+
+  post '/requests/approve/:id' do
+    @approve_request = Request.get(params[:id])
+    @approve_request.status = "approved"
+    @approve_request.save
+    redirect '/requests'
+  end
+
+  post '/requests/deny/:id' do
+    @deny_request = Request.get(params[:id])
+    @deny_request.status = "denied"
+    @deny_request.save
+    redirect '/requests'
   end
 
   # start the server if ruby file executed directly
