@@ -16,7 +16,7 @@ class User
   validates_presence_of :password, :password_confirmation
 
 
-  has n, :spaces
+  has n, :spaces, :child_key => [:host_id]
   has n, :requests_sent,   'Request',  :child_key => [ :guest_id ]
   has n, :requests_received, 'Request',:child_key => [ :host_id ]
 

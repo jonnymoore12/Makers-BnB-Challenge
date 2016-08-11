@@ -40,7 +40,7 @@ class BnB < Sinatra::Base
                         price: params[:price],
                         available_from: params[:available_from],
                         available_to: params[:available_to],)
-    space.user_id = current_user.id
+    space.host_id = current_user.id
 
     if space.save
       flash[:notice] = "Your space was successfully listed"
@@ -96,7 +96,7 @@ class BnB < Sinatra::Base
     request = Request.new(date: params[:start_date],
                           status: "pending",
                           guest_id: current_user.id,
-                          host_id: @space.user.id,
+                          host_id: @space.host.id,
                           space_id: @space.id)
     if request.save
       flash[:notice] = "Thanks, your booking request is pending!"
