@@ -12,8 +12,19 @@ class Space
   has n, :requests
 
   validates_with_method :available_from,
-                          :method => :check_available_from
+                        :method => :check_available_from
   validates_with_method :available_to, :method => :check_available_to
+
+  validates_with_method :available_to,
+                        :method => :positive_duration
+
+  def positive_duration
+    if @available_to > @available_from
+      return true
+    else
+      return [false, "Space cannot be available for negative duration"]
+    end
+  end
 
   def check_available_from
     in_the_past?(@available_from)
