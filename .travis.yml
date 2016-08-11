@@ -1,5 +1,11 @@
 rvm: '2.3.1'
 
+language: ruby
+cache: bundler
+
+notifications:
+  email: false
+
 script:
   - mkdir -p spec && bundle exec rspec spec
 
