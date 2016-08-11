@@ -119,9 +119,16 @@ class BnB < Sinatra::Base
   end
 
   post '/requests/approve/:id' do
-    @the_same_request = Request.get(params[:id])
-    @the_same_request.status = "approved"
-    @the_same_request.save
+    @approve_request = Request.get(params[:id])
+    @approve_request.status = "approved"
+    @approve_request.save
+    redirect '/requests'
+  end
+
+  post '/requests/deny/:id' do
+    @deny_request = Request.get(params[:id])
+    @deny_request.status = "denied"
+    @deny_request.save
     redirect '/requests'
   end
 

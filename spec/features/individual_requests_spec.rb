@@ -24,9 +24,18 @@ feature "View specific request" do
   scenario "host approving a request changes request status to 'approved' " do
     view_received_request
     click_button "Approve Request"
-    #This works for now as we ONLY HAVE ONE REQUEST
+    #We are not looking at a specific request
     within("ul#received-requests") do
       expect(page).to have_content "Status: approved"
+    end
+  end
+
+  scenario "host denying a request changes the request status to 'denied' " do
+    view_received_request
+    click_button "Deny Request"
+    #We are not looking at a specific request
+    within("ul#received-requests") do
+      expect(page).to have_content "Status: denied"
     end
   end
 end
