@@ -8,4 +8,5 @@ class Request
   belongs_to :guest, 'User'
   belongs_to :host,  'User'
   belongs_to :space, 'Space'
+
 end

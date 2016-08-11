@@ -1,8 +1,8 @@
 <h1><%= @space.name %><br></h1>
-<%= @space.description %><br>
-<%= @space.price %><br>
-<%= @space.available_from %><br>
-<%= @space.available_to %><br>
+<p><%= @space.description %></p>
+<h2>£<%= @space.price %> Per Night</h2>
+<h3>Available From: <%= @space.available_from.strftime("%d-%m-%Y") %></h3>
+<h3>Available To: <%= @space.available_to.strftime("%d-%m-%Y") %></h3>
 
 <form action="/requests" method="post">
   <input type="hidden" name="space_id" value="<%= @space.id %>">

@@ -3,12 +3,12 @@ class Space
 
   property :id,              Serial
   property :name,            String, required: true
-  property :description,     String
+  property :description,     Text
   property :price,           Float, required: true
   property :available_from,  Time, required: true
   property :available_to,    Time, required: true
 
-  belongs_to :user
+  belongs_to :host, 'User'
   has n, :requests
 
   validates_with_method :available_from,
@@ -37,12 +37,22 @@ class Space
     in_the_past?(@available_to)
   end
 
+  def is_available?(date)
+    if date != "" &&
+      Time.parse(date) <= @available_to &&
+      Time.parse(date) >= @available_from
+      true
+    else
+      false
+    end
+  end
+
   private
 
   def in_the_past?(date)
     if date == ""
       return [false, "Availability duration must be at least one day"]
-    elsif date.strftime("%d/%m/%Y") >= Time.now.strftime("%d/%m/%Y")
+    elsif date.strftime("%Y-%m-%d") >= Time.now.strftime("%Y-%m-%d")
       return true
     else
       return [false, "Space cannot be available in the past"]
