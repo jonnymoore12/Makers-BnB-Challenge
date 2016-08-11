@@ -3,7 +3,7 @@ class Request
 
   property :id,       Serial
   property :status,   String
-  property :date,     Date
+  property :date,     Time, required: true
 
   belongs_to :guest, 'User', :key => true
   belongs_to :host,  'User', :key => true

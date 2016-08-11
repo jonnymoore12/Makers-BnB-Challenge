@@ -91,6 +91,26 @@ class BnB < Sinatra::Base
     redirect '/'
   end
 
+  post '/requests' do
+    @space = Space.get(params[:space_id])
+    request = Request.new(date: params[:start_date],
+                          status: "pending",
+                          guest_id: current_user.id,
+                          host_id: @space.user.id,
+                          space_id: @space.id)
+    if request.save
+      flash[:notice] = "Thanks, your booking request is pending!"
+      redirect '/spaces'
+    else
+      flash.now[:error] = ["Please, pick a date!"]
+      erb :'spaces/view'
+    end
+  end
+
+  get '/requests' do
+    erb :requests
+  end
+
   # start the server if ruby file executed directly
   run! if app_file == $0
 end

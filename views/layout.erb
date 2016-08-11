@@ -5,6 +5,7 @@
     <title>Makers BnB</title>
   </head>
   <body>
+    <a href="/spaces" alt="Spaces">Spaces</a>
     <% if current_user %>
       <p>You're logged in as <%= current_user.email %>!</p>
 
@@ -30,6 +31,7 @@
         <div class="error"><%= error %></div>
       <% end %>
     <% end %>
+
 
     <%= yield %>
   </body>

@@ -5,6 +5,10 @@
 <%= @space.available_to %><br>
 
 <form action="/requests" method="post">
-  <!-- TODO: calendar -->
+  <input type="hidden" name="space_id" value="<%= @space.id %>">
+  <label for="start_date">Pick a night: </label>
+  <input name="start_date" type="date" required>
+  <br>
   <button type="submit" value="Request to Book">Request to Book</button>
 </form>
+<br>
