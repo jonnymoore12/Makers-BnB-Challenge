@@ -98,11 +98,15 @@ class BnB < Sinatra::Base
                           guest_id: current_user.id,
                           host_id: @space.host.id,
                           space_id: @space.id)
-    if request.save
+    if !@space.is_available?(request.date.to_s)
+      flash.now[:error] = ["Space is not available for this day",
+                           "Please, pick a date!"]
+      erb :'spaces/view'
+    elsif request.save
       flash[:notice] = "Thanks, your booking request is pending!"
       redirect '/spaces'
     else
-      flash.now[:error] = ["Please, pick a date!"]
+      flash[:error] = request.errors.full_messages
       erb :'spaces/view'
     end
   end

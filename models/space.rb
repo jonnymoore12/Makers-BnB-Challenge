@@ -37,6 +37,16 @@ class Space
     in_the_past?(@available_to)
   end
 
+  def is_available?(date)
+    if date != "" &&
+      Time.parse(date) <= @available_to &&
+      Time.parse(date) >= @available_from
+      true
+    else
+      false
+    end
+  end
+
   private
 
   def in_the_past?(date)
