@@ -1,6 +1,8 @@
 **Team Jesus**
 ==============
 
+http://bnb-jesus.herokuapp.com/
+
 [![Build Status](https://travis-ci.org/jonnymoore12/Makers-BnB-Challenge.svg?branch=master)](https://travis-ci.org/jonnymoore12/Makers-BnB-Challenge)
 
 ![jesus-4](https://cloud.githubusercontent.com/assets/18379191/17605836/50b01448-6014-11e6-8224-237be7ed5c79.jpg)
@@ -8,10 +10,10 @@
 Members
 =======
 
-* Sal
-* Arunas
-* Jonny
-* Rich
+* Sal - https://github.com/cyberplanner
+* Arunas - https://github.com/arukomp
+* Jonny - https://github.com/jonnymoore12
+* Rich - https://github.com/richo225
 
 Meetings
 ========
