@@ -4,6 +4,9 @@
 http://bnb-jesus.herokuapp.com/
 
 [![Build Status](https://travis-ci.org/jonnymoore12/Makers-BnB-Challenge.svg?branch=master)](https://travis-ci.org/jonnymoore12/Makers-BnB-Challenge)
+[![Coverage Status](https://coveralls.io/repos/github/jonnymoore12/Makers-BnB-Challenge/badge.svg?branch=master)](https://coveralls.io/github/jonnymoore12/Makers-BnB-Challenge?branch=master)
+
+
 
 ![jesus-4](https://cloud.githubusercontent.com/assets/18379191/17605836/50b01448-6014-11e6-8224-237be7ed5c79.jpg)
 
@@ -81,6 +84,8 @@ As a guest
 To avoid conflict
 I can only request an unapproved night
 ```
+
+# Screenshots
 
 # Demonstration
 
