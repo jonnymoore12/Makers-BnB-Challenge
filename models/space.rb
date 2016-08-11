@@ -20,7 +20,7 @@ class Space
 
   def positive_duration
     if @available_to == "" || @available_from == ""
-      return [false, "Space cannot be available for negative duration"]
+      return [false, "Availability duration must be at least one day"]
     end
     if @available_to > @available_from
       return true
@@ -41,7 +41,7 @@ class Space
 
   def in_the_past?(date)
     if date == ""
-      return [false, "Space cannot be available in the past"]
+      return [false, "Availability duration must be at least one day"]
     elsif date.strftime("%d/%m/%Y") >= Time.now.strftime("%d/%m/%Y")
       return true
     else
