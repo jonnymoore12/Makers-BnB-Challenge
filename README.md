@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/jonnymoore12/Makers-BnB-Challenge.svg?branch=master)](https://travis-ci.org/jonnymoore12/Makers-BnB-Challenge)
+
 # Team Jesus
 
 * Sal
