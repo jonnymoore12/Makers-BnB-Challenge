@@ -17,4 +17,10 @@ feature "Viewing sent/received requests" do
       expect(page).to have_content "Received request for: Victoria Gardens"
     end
   end
+
+  scenario "Host can see pending requests" do
+    within("ul#received-requests") do
+      expect(page).to have_content "Status: pending"
+    end
+  end
 end
