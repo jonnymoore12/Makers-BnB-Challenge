@@ -92,18 +92,18 @@ class BnB < Sinatra::Base
   end
 
   post '/requests' do
+    @space = Space.get(params[:space_id])
     request = Request.new(date: params[:start_date],
                           status: "pending",
-                          guest_id: 2,
-                          host_id: 2,
-                          space_id: 4)
-                          # hard coded id's. Needs replacing
+                          guest_id: current_user.id,
+                          host_id: @space.user.id,
+                          space_id: @space.id)
     if request.save
-      flash.now[:notice] = ["Thanks, your booking request is pending!"]
-      # redirect '/spaces'
+      flash[:notice] = "Thanks, your booking request is pending!"
+      redirect '/spaces'
     else
       flash.now[:error] = ["Please, pick a date!"]
-      # erb :'spaces/view'  #loses session information!!!!!
+      erb :'spaces/view'
     end
   end
 
