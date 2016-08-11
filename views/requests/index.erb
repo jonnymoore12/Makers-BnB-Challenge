@@ -1,7 +1,7 @@
 <ul id="sent-requests">
   <% @sent_requests.each do |request| %>
     <h2>
-      Sent request for: <a href="requests/<%=request.id%>"><%= request.space.name %></a>
+      Sent request for: <a href="/requests/<%=request.id%>"><%= request.space.name %></a>
     </h2>
     <li>Status: <%= request.status %></li>
     <li>Date of stay: <%= request.date.strftime("%d/%m/%Y") %></li>
@@ -11,7 +11,7 @@
 <ul id="received-requests">
   <% @received_requests.each do |request| %>
     <h2>
-      Received request for: <a href="requests/<%=request.id%>"><%= request.space.name %></a>
+      Received request for: <a href="/requests/<%=request.id%>"><%= request.space.name %></a>
     </h2>
     <li>Status: <%= request.status %></li>
     <li>Date of stay: <%= request.date.strftime("%d/%m/%Y") %></li>
