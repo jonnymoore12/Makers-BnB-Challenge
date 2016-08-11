@@ -42,7 +42,7 @@ class Space
   def in_the_past?(date)
     if date == ""
       return [false, "Availability duration must be at least one day"]
-    elsif date.strftime("%d/%m/%Y") >= Time.now.strftime("%d/%m/%Y")
+    elsif date.strftime("%Y-%m-%d") >= Time.now.strftime("%Y-%m-%d")
       return true
     else
       return [false, "Space cannot be available in the past"]
