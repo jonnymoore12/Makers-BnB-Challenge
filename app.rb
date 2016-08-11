@@ -108,6 +108,7 @@ class BnB < Sinatra::Base
   end
 
   get '/requests' do
+    @sent_requests = current_user.requests_sent
     erb :requests
   end
 

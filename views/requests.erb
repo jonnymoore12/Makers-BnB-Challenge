@@ -1,0 +1,5 @@
+<ul id="sent-requests">
+  <% @sent_requests.each do |request| %>
+    <li>Sent request for: <%= request.space.name %></li>
+  <% end %>
+</ul>

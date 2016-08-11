@@ -10,8 +10,7 @@ feature "Sending a request" do
   scenario "user must pick a date to send a request" do
     sign_up
     create_space
-    click_link "Victoria Gardens"
-    click_button "Request to Book"
+    send_request(start_date: "")
     expect(page).to have_content "Please, pick a date!"
   end
 end
