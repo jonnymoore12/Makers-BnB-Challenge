@@ -12,10 +12,32 @@ class Space
   has n, :requests
 
   validates_with_method :available_from,
-                          :method => :in_the_past?
+                        :method => :check_available_from
+  validates_with_method :available_to, :method => :check_available_to
 
-  def in_the_past?
-    if @available_from.to_s >= Time.now.to_s
+  validates_with_method :available_to,
+                        :method => :positive_duration
+
+  def positive_duration
+    if @available_to > @available_from
+      return true
+    else
+      return [false, "Space cannot be available for negative duration"]
+    end
+  end
+
+  def check_available_from
+    in_the_past?(@available_from)
+  end
+
+  def check_available_to
+    in_the_past?(@available_to)
+  end
+
+  private
+
+  def in_the_past?(date)
+    if date.to_s >= Time.now.to_s
       return true
     else
       return [false, "Space cannot be available in the past"]
