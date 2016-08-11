@@ -4,4 +4,11 @@ module RequestsHelpers
     fill_in :start_date, with: start_date
     click_button "Request to Book"
   end
+
+  def view_received_request
+    visit '/requests'
+    within("ul#received-requests") do
+      click_link "Victoria Gardens"
+    end
+  end
 end

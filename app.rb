@@ -110,7 +110,11 @@ class BnB < Sinatra::Base
   get '/requests' do
     @received_requests = current_user.requests_received
     @sent_requests = current_user.requests_sent
-    erb :requests
+    erb :'requests/index'
+  end
+
+  get '/requests/:id' do
+    erb :'requests/view'
   end
 
   # start the server if ruby file executed directly
