@@ -11,4 +11,11 @@ module RequestsHelpers
       click_link "Victoria Gardens"
     end
   end
+
+  def view_sent_request
+    visit '/requests'
+    within("ul#sent-requests") do
+      click_link "Victoria Gardens"
+    end
+  end
 end

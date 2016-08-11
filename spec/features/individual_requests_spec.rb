@@ -38,4 +38,14 @@ feature "View specific request" do
       expect(page).to have_content "Status: denied"
     end
   end
+
+  scenario "only the host of the space can approve/deny" do
+    click_button "Log Out"
+    sign_up(email: "newguest@email.com", password: "secret",
+            password_confirmation: "secret")
+    send_request
+    view_sent_request
+    expect(page).not_to have_button("Approve Request")
+    expect(page).not_to have_button("Deny Request")
+  end
 end
