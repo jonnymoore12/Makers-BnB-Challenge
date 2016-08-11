@@ -50,4 +50,10 @@ feature "Listing a space" do
     expect(page).to have_content "Space cannot be available in the past"
   end
 
+  scenario "space cannot be listed as available_to a past date" do
+    sign_up
+    create_space(available_to:(Date.today - 1))
+    expect(page).to have_content "Space cannot be available in the past"
+  end
+
 end
