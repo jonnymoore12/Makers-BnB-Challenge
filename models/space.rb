@@ -19,7 +19,7 @@ class Space
                         :method => :positive_duration
 
   def positive_duration
-    if @available_to > @available_from
+    if Time.new(@available_to) > Time.new(@available_from)
       return true
     else
       return [false, "Space cannot be available for negative duration"]
@@ -37,7 +37,7 @@ class Space
   private
 
   def in_the_past?(date)
-    if date.to_s >= Time.now.to_s
+    if Time.new(date).strftime("%d/%m/%Y") >= Time.now.strftime("%d/%m/%Y")
       return true
     else
       return [false, "Space cannot be available in the past"]
