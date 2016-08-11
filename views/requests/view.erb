@@ -1,1 +1,11 @@
-<%=@individual_request.inspect %>
+<h1><%=@individual_request.space.name %></h1>
+
+<ul id="space_details">
+  <li><%= @individual_request.space.price %></li>
+  <li><%= @individual_request.date %></li>
+</ul>
+
+
+<form action="/requests/approve/<%=@individual_request.id%>" method="post">
+  <button type="submit" value="Approve Request">Approve Request</button>
+</form>

@@ -118,6 +118,12 @@ class BnB < Sinatra::Base
     erb :'requests/view'
   end
 
+  post '/requests/approve/:id' do
+    @the_same_request = Request.get(params[:id])
+    @the_same_request.status = "approved"
+    @the_same_request.save
+    redirect '/requests'
+  end
 
   # start the server if ruby file executed directly
   run! if app_file == $0

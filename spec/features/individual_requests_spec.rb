@@ -9,4 +9,24 @@ feature "View specific request" do
     view_received_request
     expect(page).to have_button("Approve Request")
   end
+
+  scenario "details of space are displayed on page" do
+    view_received_request
+    expect(page).to have_content "Victoria Gardens"
+  end
+
+  scenario "host is returned back to '/request' page after approving a request" do
+    view_received_request
+    click_button "Approve Request"
+    expect(page.current_path).to eq '/requests'
+  end
+
+  scenario "host approving a request changes request status to 'approved' " do
+    view_received_request
+    click_button "Approve Request"
+    #This works for now as we ONLY HAVE ONE REQUEST
+    within("ul#received-requests") do
+      expect(page).to have_content "Status: approved"
+    end
+  end
 end
