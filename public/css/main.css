@@ -22,3 +22,9 @@
     border-color: transparent;
     color: #fff !important;
 }
+
+footer .glyphicon {
+    font-size: 20px;
+    margin-bottom: 20px;
+    color: #f4511e;
+}

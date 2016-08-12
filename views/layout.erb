@@ -5,6 +5,7 @@
     <title>Makers BnB</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="/css/main.css">
     <script src="/src/jquery.min.js"></script>
     <script src="/src/bootstrap.min.js"></script>
@@ -14,9 +15,7 @@
       <div class="container">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
+            <span class="fa fa-bars"></span>
           </button>
           <a class="navbar-brand" href="/">BnB Jesus</a>
         </div>
@@ -47,25 +46,34 @@
 
 
       <% if current_user %>
-        <p id="login-message">You're logged in as <%= current_user.email %>!</p>
+        <p class="text-center text-muted" id="login-message">You're logged in as <%= current_user.email %>!</p>
       <% end %>
 
       <% if flash[:logout] %>
-        <div id="logout"><%= flash[:logout] %> </div>
+        <div id="logout" class="text-center text-muted"><%= flash[:logout] %> </div>
       <% end %>
 
       <% if flash[:notice] %>
-        <div class="notice"><%= flash[:notice] %></div>
+        <div class="notice text-center text-muted"><%= flash[:notice] %></div>
       <% end %>
 
       <% if flash[:error] %>
         <% flash[:error].each do |error| %>
-          <div class="error"><%= error %></div>
+          <ul>
+            <li class="error text-center text-muted"><%= error %></li>
+          </ul>
         <% end %>
       <% end %>
 
     <%= yield %>
 
-    
+
+    <footer class="container-fluid text-center navbar-fixed-bottom">
+      <a href="#myPage" title="To Top">
+        <i class="fa fa-angle-double-up fa-lg"></i>
+      </a>
+      <p>Made By <a href="#" title="Team Jesus">Tesm Jesus</a></p>
+    </footer>
+
   </body>
 </html>

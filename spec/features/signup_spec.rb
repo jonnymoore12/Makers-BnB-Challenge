@@ -27,7 +27,7 @@ feature "#Signup" do
 
   scenario "user cannot sign up with an empty passsword" do
     sign_up(password: "")
-    expect(page).to have_content "Password must not be blank email"
+    expect(page).to have_content "Password must not be blank"
   end
 
 end
