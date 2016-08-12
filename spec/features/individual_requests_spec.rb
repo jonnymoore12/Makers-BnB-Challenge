@@ -30,6 +30,16 @@ feature "View specific request" do
     end
   end
 
+  scenario "approving a request automatically denies other requests for same date" do
+    send_request
+    first_request = Request.first
+    second_request = Request.last
+    visit "/requests/#{first_request.id}"
+    click_button "Approve Request"
+    visit "/requests/#{second_request.id}"
+    expect(page).to have_content("Status: denied")
+  end
+
   scenario "host denying a request changes the request status to 'denied' " do
     view_received_request
     click_button "Deny Request"
