@@ -21,4 +21,15 @@ feature '#Login' do
     visit '/'
     expect(page).to have_link "Log In"
   end
+
+  scenario "User cannot go to requests route if not logged in" do
+    visit '/requests'
+    expect(page).to have_content("Please sign up or log in to view requests")
+  end
+
+  scenario "Spaces is the root if user is already logged in" do
+    sign_up
+    visit '/'
+    expect(page).to have_content "Spaces"
+  end
 end
