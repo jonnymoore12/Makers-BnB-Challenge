@@ -1,11 +1,12 @@
-**Team Jesus**
-==============
+![long_logo](https://cloud.githubusercontent.com/assets/18379191/17629210/30f36658-60b1-11e6-8fe1-65349fa89fa6.png)
 
-http://bnb-jesus.herokuapp.com/
 
 [![Build Status](https://travis-ci.org/jonnymoore12/Makers-BnB-Challenge.svg?branch=master)](https://travis-ci.org/jonnymoore12/Makers-BnB-Challenge)
 [![Coverage Status](https://coveralls.io/repos/github/jonnymoore12/Makers-BnB-Challenge/badge.svg?branch=master)](https://coveralls.io/github/jonnymoore12/Makers-BnB-Challenge?branch=master)
 
+"Don't be like Mary. There's always room at the inn"
+
+http://bnb-jesus.herokuapp.com/
 
 
 ![jesus-4](https://cloud.githubusercontent.com/assets/18379191/17605836/50b01448-6014-11e6-8224-237be7ed5c79.jpg)
@@ -88,5 +89,3 @@ I can only request an unapproved night
 # Screenshots
 
 # Demonstration
-
-# Edge cases
