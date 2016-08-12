@@ -1,8 +1,9 @@
 <h1><%=@individual_request.space.name %></h1>
 
 <ul id="space_details">
-  <li><%= @individual_request.space.price %></li>
-  <li><%= @individual_request.date %></li>
+  <li>Status: <%= @individual_request.status %></li>
+  <li>Price: <%= @individual_request.space.price %></li>
+  <li>Date: <%= @individual_request.date %></li>
 </ul>
 
 <% if current_user.id == @individual_request.host_id %>
