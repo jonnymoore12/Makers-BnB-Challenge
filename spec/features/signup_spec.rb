@@ -11,6 +11,7 @@ feature "#Signup" do
 
   scenario "user cannot sign up when the email is already taken" do
     sign_up
+    click_button "Log Out"
     sign_up
     expect(page).to have_content "Email is already taken"
   end
