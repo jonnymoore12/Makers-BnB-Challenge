@@ -4,27 +4,27 @@
   <form action="/spaces" method="post">
     <label for="name"> Name: </label>
       <br>
-    <input type="text" name="name">
+    <input type="text" name="name" value="<%= @space.name %>">
       <br>
       <br>
     <label for="description"> Description: </label>
       <br>
-    <textarea name="description" cols="40" rows="5"></textarea>
+    <textarea name="description" cols="40" rows="5"><%= @space.description %></textarea>
       <br>
       <br>
     <label for="price"> Price: </label>
       <br>
-    <input type="number" name="price">
+    <input type="number" name="price" value="<%= @space.price %>">
       <br>
       <br>
     <label for="available_from"> Available from: </label>
       <br>
-    <input type="date" name="available_from">
+    <input type="date" name="available_from" value="<%= @space.available_from %>">
       <br>
       <br>
     <label for="available_to"> Available to: </label>
       <br>
-    <input type="date" name="available_to">
+    <input type="date" name="available_to" value="<%= @space.available_to %>">
       <br>
       <br>
     <input type="submit" value="List my Space">
