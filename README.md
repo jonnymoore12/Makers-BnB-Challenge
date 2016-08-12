@@ -1,13 +1,25 @@
+**Team Jesus**
+==============
+
+http://bnb-jesus.herokuapp.com/
+
 [![Build Status](https://travis-ci.org/jonnymoore12/Makers-BnB-Challenge.svg?branch=master)](https://travis-ci.org/jonnymoore12/Makers-BnB-Challenge)
+[![Coverage Status](https://coveralls.io/repos/github/jonnymoore12/Makers-BnB-Challenge/badge.svg?branch=master)](https://coveralls.io/github/jonnymoore12/Makers-BnB-Challenge?branch=master)
 
-# Team Jesus
 
-* Sal
-* Arunas
-* Jonny
-* Rich
 
-# Meetings
+![jesus-4](https://cloud.githubusercontent.com/assets/18379191/17605836/50b01448-6014-11e6-8224-237be7ed5c79.jpg)
+
+Members
+=======
+
+* Sal - https://github.com/cyberplanner
+* Arunas - https://github.com/arukomp
+* Jonny - https://github.com/jonnymoore12
+* Rich - https://github.com/richo225
+
+Meetings
+========
 
 * Every morning ~9.30
 
@@ -72,3 +84,9 @@ As a guest
 To avoid conflict
 I can only request an unapproved night
 ```
+
+# Screenshots
+
+# Demonstration
+
+# Edge cases
