@@ -1,4 +1,4 @@
-.navbar {
+.navbar, #logout-button {
     margin-bottom: 0;
     background-color: #3498db;
     z-index: 9999;
@@ -10,12 +10,12 @@
     height: 55px !important;
 }
 
-.navbar li a, .navbar .navbar-brand {
+.navbar li a, .navbar .navbar-brand, #logout-button {
     color: #fff !important;
     height: 55px !important;
 }
 
-.navbar-nav li a:hover, .navbar-nav li.active a {
+.navbar-nav li a:hover, .navbar-nav li.active a, #logout-button:hover {
     color: #3498db !important;
     background-color: #fff !important;
     height: 55px !important;
@@ -62,4 +62,8 @@ body {
   width: 100%;
   max-width: 100%;
   min-width: 100%;
+}
+
+#logout-button {
+  border: none;
 }
