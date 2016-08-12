@@ -127,8 +127,8 @@ class BnB < Sinatra::Base
     @approve_request.status = "approved"
     @approve_request.save
     other_requests = Request.all(date: @approve_request.date,
-                                space: @approve_request.space,
-                                status: "pending")
+                                 space: @approve_request.space,
+                                 status: "pending")
     other_requests.each do |req|
       req.status = "denied"
       req.save
