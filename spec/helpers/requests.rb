@@ -18,4 +18,14 @@ module RequestsHelpers
       click_link "Victoria Gardens"
     end
   end
+
+  def approve_request
+     view_received_request
+     click_button 'Approve Request'
+   end
+ 
+   def deny_request
+     view_received_request
+     click_button 'Deny Request'
+   end
 end

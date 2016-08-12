@@ -93,6 +93,10 @@ class BnB < Sinatra::Base
 
   post '/requests' do
     @space = Space.get(params[:space_id])
+    @approved_request = Request.all(date: params[:start_date],
+                                    space: @space,
+                                    status: "approved")
+
     request = Request.new(date: params[:start_date],
                           status: "pending",
                           guest_id: current_user.id,
@@ -101,6 +105,9 @@ class BnB < Sinatra::Base
     if !@space.is_available?(request.date.to_s)
       flash.now[:error] = ["Space is not available for this day",
                            "Please, pick a date!"]
+      erb :'spaces/view'
+    elsif !@approved_request.empty?
+      flash.now[:error] = ["This date is already booked"]
       erb :'spaces/view'
     elsif request.save
       flash[:notice] = "Thanks, your booking request is pending!"
