@@ -21,13 +21,16 @@ class BnB < Sinatra::Base
   end
 
   get '/' do
-    @user = User.new
-    erb :index
+    if current_user
+      redirect '/spaces'
+    else
+      @user = User.new
+      erb :index
+    end
   end
 
   get '/spaces' do
     @spaces = Space.all
-
     erb :'spaces/index'
   end
 
