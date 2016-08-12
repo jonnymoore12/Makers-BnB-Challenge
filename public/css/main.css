@@ -7,15 +7,18 @@
     line-height: 1.42857143 !important;
     letter-spacing: 4px;
     border-radius: 0;
+    height: 55px !important;
 }
 
 .navbar li a, .navbar .navbar-brand {
     color: #fff !important;
+    height: 55px !important;
 }
 
 .navbar-nav li a:hover, .navbar-nav li.active a {
     color: #3498db !important;
     background-color: #fff !important;
+    height: 55px !important;
 }
 
 .navbar-default .navbar-toggle {
@@ -40,6 +43,7 @@
 
 .main-logo {
   max-height: 50px;
+  padding-top: 3px;
 }
 
 .classy-font {
@@ -48,4 +52,8 @@
 
 body {
   font-family: 'Open Sans', sans-serif;
+}
+
+.navbar-brand {
+  padding: 0;
 }
