@@ -124,9 +124,14 @@ class BnB < Sinatra::Base
   end
 
   get '/requests' do
-    @received_requests = current_user.requests_received
-    @sent_requests = current_user.requests_sent
-    erb :'requests/index'
+    if current_user
+      @received_requests = current_user.requests_received
+      @sent_requests = current_user.requests_sent
+      erb :'requests/index'
+    else
+      flash[:error] = ["Please sign up or log in to view requests"]
+      redirect '/'
+    end
   end
 
   get '/requests/:id' do
