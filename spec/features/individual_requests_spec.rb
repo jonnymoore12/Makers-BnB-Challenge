@@ -16,8 +16,7 @@ feature "View specific request" do
   end
 
   scenario "host is returned back to '/request' page after approving a request" do
-    view_received_request
-    click_button "Approve Request"
+    approve_request
     expect(page.current_path).to eq '/requests'
   end
 
@@ -32,8 +31,7 @@ feature "View specific request" do
   end
 
   scenario "host approving a request changes request status to 'approved' " do
-    view_received_request
-    click_button "Approve Request"
+    approve_request
     #We are not looking at a specific request
     within("ul#received-requests") do
       expect(page).to have_content "Status: approved"
@@ -41,8 +39,7 @@ feature "View specific request" do
   end
 
   scenario "host denying a request changes the request status to 'denied' " do
-    view_received_request
-    click_button "Deny Request"
+    deny_request
     #We are not looking at a specific request
     within("ul#received-requests") do
       expect(page).to have_content "Status: denied"
