@@ -18,4 +18,14 @@ feature "Sending a request" do
     send_request(start_date: "10/05/2019")
     expect(page).to have_content "Space is not available for this day"
   end
+
+  scenario "user cannot book a booked and approved night" do
+    visit '/spaces'
+    send_request
+    approve_request
+    visit '/spaces'
+    send_request
+    expect(page).to have_content "This date is already booked"
+
+  end
 end
