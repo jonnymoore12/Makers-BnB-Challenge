@@ -21,6 +21,7 @@ class BnB < Sinatra::Base
   end
 
   get '/' do
+    @user = User.new
     erb :index
   end
 
@@ -31,22 +32,23 @@ class BnB < Sinatra::Base
   end
 
   get '/spaces/new' do
+    @space = Space.new
     erb :'spaces/new'
   end
 
   post '/spaces' do
-    space = Space.new(name: params[:name],
+    @space = Space.new(name: params[:name],
                         description: params[:description],
                         price: params[:price],
                         available_from: params[:available_from],
                         available_to: params[:available_to],)
-    space.host_id = current_user.id
+    @space.host_id = current_user.id
 
-    if space.save
+    if @space.save
       flash[:notice] = "Your space was successfully listed"
       redirect '/spaces'
     else
-      flash.now[:error] = space.errors.full_messages
+      flash.now[:error] = @space.errors.full_messages
       erb :'spaces/new'
     end
   end
@@ -57,15 +59,15 @@ class BnB < Sinatra::Base
   end
 
   post '/users' do
-    user = User.new(email: params[:email],
+    @user = User.new(email: params[:email],
                 password: params[:password],
                 password_confirmation: params[:password_confirmation])
-    if user.save
-      session[:user_id] = user.id
-      flash[:notice] = "Welcome, #{user.email}"
+    if @user.save
+      session[:user_id] = @user.id
+      flash[:notice] = "Welcome, #{@user.email}"
       redirect '/spaces'
     else
-      flash.now[:error] = user.errors.full_messages
+      flash.now[:error] = @user.errors.full_messages
       erb :index
     end
   end
