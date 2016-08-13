@@ -48,25 +48,28 @@
     </nav>
 
 
-      <% if current_user %>
-        <p class="text-center text-muted" id="login-message">You're logged in as <%= current_user.email %>!</p>
-      <% end %>
-
-      <% if flash[:logout] %>
-        <div id="logout" class="text-center text-muted"><%= flash[:logout] %> </div>
-      <% end %>
-
-      <% if flash[:notice] %>
-        <div class="notice text-center text-muted"><%= flash[:notice] %></div>
-      <% end %>
-
-      <% if flash[:error] %>
-        <% flash[:error].each do |error| %>
-          <ul>
-            <li class="error text-center text-muted"><%= error %></li>
-          </ul>
+      <div id="error-messages" class="text-center">
+        <% if current_user %>
+          <p class="text-center text-muted" id="login-message">You're logged in as <%= current_user.email %>!</p>
         <% end %>
-      <% end %>
+
+        <% if flash[:logout] %>
+          <div id="logout" class="text-danger"><%= flash[:logout] %> </div>
+        <% end %>
+
+        <% if flash[:notice] %>
+          <div class="notice text-danger"><%= flash[:notice] %></div>
+        <% end %>
+
+        <% if flash[:error] %>
+          <% flash[:error].each do |error| %>
+            <ul>
+              <li class="error text-danger"><%= error %></li>
+            </ul>
+          <% end %>
+        <% end %>
+
+      </div>
 
     <%= yield %>
 
