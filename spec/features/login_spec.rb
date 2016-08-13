@@ -6,7 +6,6 @@ feature '#Login' do
   end
 
   scenario 'User can log in' do
-    sign_up
     log_in
     expect(page).to have_content("You're logged in")
   end
@@ -20,5 +19,16 @@ feature '#Login' do
   scenario 'There should be a "log in" button when not logged in' do
     visit '/'
     expect(page).to have_link "Log In"
+  end
+
+  scenario "User cannot go to requests route if not logged in" do
+    visit '/requests'
+    expect(page).to have_content("Please sign up or log in to view requests")
+  end
+
+  scenario "Spaces is the root if user is already logged in" do
+    log_in
+    visit '/'
+    expect(current_path).to eq '/spaces'
   end
 end
