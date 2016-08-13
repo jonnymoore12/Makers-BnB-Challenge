@@ -6,7 +6,6 @@ feature '#Login' do
   end
 
   scenario 'User can log in' do
-    sign_up
     log_in
     expect(page).to have_content("You're logged in")
   end
@@ -28,8 +27,8 @@ feature '#Login' do
   end
 
   scenario "Spaces is the root if user is already logged in" do
-    sign_up
+    log_in
     visit '/'
-    expect(page).to have_content "Spaces"
+    expect(current_path).to eq '/spaces'
   end
 end
