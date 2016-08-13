@@ -67,3 +67,7 @@ body {
 #logout-button {
   border: none;
 }
+
+#error-messages ul {
+  list-style-type: none;
+}

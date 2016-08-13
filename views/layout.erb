@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Makers BnB</title>
+    <title>Jesus BnB | Don't be like Mary!</title>
     <link type="image/png" rel="icon" href="img/favicon.png">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -19,12 +19,13 @@
           <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
             <span class="fa fa-bars"></span>
           </button>
-          <a class="navbar-brand" href="/"><img src="http://i68.tinypic.com/2w1tfnl.jpg" alt="logo" class="img img-responsive main-logo"/></a>
+          <a class="navbar-brand" href="/"><img src="http://i68.tinypic.com/a3dndf.jpg" alt="logo" class="img img-responsive main-logo"/></a>
         </div>
       </div>
 
       <div class="collapse navbar-collapse navbar-fixed-top">
         <ul class="nav navbar-nav navbar-right">
+          <li><a href="/" alt="Home">Home</a></li>
           <li><a href="/spaces" alt="Spaces">Spaces</a></li>
           <li><a href="/" alt="signup">Sign Up</a></li>
         <% if current_user %>
@@ -47,25 +48,28 @@
     </nav>
 
 
-      <% if current_user %>
-        <p class="text-center text-muted" id="login-message">You're logged in as <%= current_user.email %>!</p>
-      <% end %>
-
-      <% if flash[:logout] %>
-        <div id="logout" class="text-center text-muted"><%= flash[:logout] %> </div>
-      <% end %>
-
-      <% if flash[:notice] %>
-        <div class="notice text-center text-muted"><%= flash[:notice] %></div>
-      <% end %>
-
-      <% if flash[:error] %>
-        <% flash[:error].each do |error| %>
-          <ul>
-            <li class="error text-center text-muted"><%= error %></li>
-          </ul>
+      <div id="error-messages" class="text-center">
+        <% if current_user %>
+          <p class="text-center text-muted" id="login-message">You're logged in as <%= current_user.email %>!</p>
         <% end %>
-      <% end %>
+
+        <% if flash[:logout] %>
+          <div id="logout" class="text-danger"><%= flash[:logout] %> </div>
+        <% end %>
+
+        <% if flash[:notice] %>
+          <div class="notice text-danger"><%= flash[:notice] %></div>
+        <% end %>
+
+        <% if flash[:error] %>
+          <% flash[:error].each do |error| %>
+            <ul>
+              <li class="error text-danger"><%= error %></li>
+            </ul>
+          <% end %>
+        <% end %>
+
+      </div>
 
     <%= yield %>
 
