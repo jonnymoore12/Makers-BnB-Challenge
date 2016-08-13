@@ -1,37 +1,35 @@
-<h1> List a space </h1>
+<div class="container-fluid">
+  <div class="col-md-4 col-md-offset-4 text-center">
+    <h1 class="text-primary"> List a Space </h1>
 
-<% if current_user %>
-  <form action="/spaces" method="post">
-    <label for="name"> Name: </label>
-      <br>
-    <input type="text" name="name" value="<%= @space.name %>">
-      <br>
-      <br>
-    <label for="description"> Description: </label>
-      <br>
-    <textarea name="description" cols="40" rows="5"><%= @space.description %></textarea>
-      <br>
-      <br>
-    <label for="price"> Price: </label>
-      <br>
-    <input type="number" name="price" value="<%= @space.price %>">
-      <br>
-      <br>
-    <label for="available_from"> Available from: </label>
-      <br>
-    <input type="date" name="available_from" value="<%= @space.available_from %>">
-      <br>
-      <br>
-    <label for="available_to"> Available to: </label>
-      <br>
-    <input type="date" name="available_to" value="<%= @space.available_to %>">
-      <br>
-      <br>
-    <input type="submit" value="List my Space">
-  </form>
+    <% if current_user %>
+      <form class="form-group form-horizontal row" action="/spaces" method="post">
+        <div class="form-group">
+          <label for="name"> Name: </label>
+          <input class="form-control" size="50" placeholder="Enter your name" type="text" name="name" value="<%= @space.name %>">
+        </div>
+        <div class="form-group">
+          <textarea class="form-size" placeholder="   Description" name="description" rows="5"><%= @space.description %></textarea>
+        </div>
+        <div class="form-group">
+          <label for="price"> £: </label>
+          <input class="form-control" size="50" placeholder="Price" type="number" name="price" value="<%= @space.price %>">
+        </div>
+        <div class="form-group">
+          <label for="available_from"> Available from: </label>
+          <input class="form-control" size="50" type="date" name="available_from" value="<%= @space.available_from %>">
+        </div>
+        <div class="form-group">
+          <label for="available_to"> Available to: </label>
+          <input class="form-control" size="50" type="date" name="available_to" value="<%= @space.available_to %>">
+        </div>
+        <input type="submit" value="List my Space">
+      </form>
+    <% else %>
 
-<% else %>
+      Must be logged in to add a Space
 
-  Must be logged in to add a Space
+    <% end %>
+  </div>
 
-<% end %>
+</div>
