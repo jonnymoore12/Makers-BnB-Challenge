@@ -1,6 +1,7 @@
-<div class="container-fluid">
-  <div class="col-md-4 col-md-offset-4 text-center">
-    <h1 class="text-primary"> List a Space </h1>
+<div class="container-fluid ">
+  <h1 class="text-primary classy-font well text-center"> List a Space </h1>
+  <div class="col-md-4 col-md-offset-4 text-center ">
+
 
     <% if current_user %>
       <form class="form-group form-horizontal row" action="/spaces" method="post">
@@ -23,12 +24,12 @@
           <label for="available_to"> Available to: </label>
           <input class="form-control" size="50" type="date" name="available_to" value="<%= @space.available_to %>">
         </div>
-        <input type="submit" value="List my Space">
+        <input type="submit" value="List my Space" class="btn btn-default">
       </form>
     <% else %>
-
-      Must be logged in to add a Space
-
+      <p>
+        Must be logged in to add a Space
+      </p>
     <% end %>
   </div>
 

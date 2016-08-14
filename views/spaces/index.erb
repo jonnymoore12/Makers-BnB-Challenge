@@ -1,15 +1,39 @@
-<h1> Spaces </h1>
+<div class="row">
+  <br>
+</div>
 
-<form action="/spaces/new">
-  <button type="submit">List a Space</button>
-</form>
+<h1 class="text-center text-primary classy-font well"> Spaces </h1>
 
-<ul id="space-list">
-  <% @spaces.each do |space| %>
-    <li>
-      <h2><a href="/spaces/<%= space.id %>"><%= space.name %></a></h2>
-      Description: <%= space.description %><br>
-      Price per night: £<%= space.price %><br>
-    </li>
-  <% end %>
-</ul>
+<div class="row">
+  <form action="/spaces/new" class="text-center">
+    <button type="submit" class="btn btn-success">List a Space <i class="fa fa-plus"></i></button>
+  </form>
+</div>
+
+<hr>
+
+<div class="container col-md-12">
+  <ul id="space-list">
+    <% @spaces.each do |space| %>
+      <li class="well col-md-4 col-md-offset-1">
+        <h2 class="classy-font bg-danger "><i class="fa fa-caret-square-o-right"></i> <a href="/spaces/<%= space.id %>"><%= space.name %></a></h2>
+        <div class="">
+          <p>
+            Description: <pre><%= space.description %></pre>
+          </p>
+        </div>
+        <div class="">
+          <p>
+            Price per night: £<%= space.price %>
+          </p>
+        </div>
+        <form class="" action="/spaces/<%= space.id %>">
+          <button type="submit" name="view-space" class="btn btn-default" >View This Space <i class="fa fa-home"></i></button>
+        </form>
+
+      </li>
+    <% end %>
+  </ul>
+</div>
+
+<br>
