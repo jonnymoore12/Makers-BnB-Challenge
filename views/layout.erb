@@ -23,11 +23,10 @@
         </div>
 
 
-        <div class="collapse navbar-collapse">
+        <div id="myNavbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav navbar-right">
             <li><a href="/" alt="Home">Home</a></li>
             <li><a href="/spaces" alt="Spaces">Spaces</a></li>
-
           <% if current_user %>
             <li><a href="/requests" alt="Your requests">Your requests</a></li>
             <li>
@@ -38,7 +37,6 @@
             </li>
 
           <% else %>
-          <li><a href="/" alt="signup">Sign Up</a></li>
           <li>
             <a href="/sessions/new" >Log In</a>
           </li>
@@ -81,8 +79,9 @@
     <%= yield %>
 
 
-    <footer class="container-fluid text-center navbar-fixed-bottom navbar-inverse footer">
-      <a href="#myPage" title="To Top">
+
+    <footer class="container-fluid text-center navbar-fixed-bottom">
+      <a href="#" title="To Top">
         <i class="fa fa-angle-double-up fa-lg"></i>
       </a>
       <p class="text-primary">Made By <a href="https://github.com/jonnymoore12/Makers-BnB-Challenge" title="Team Jesus">Team Jesus</a></p>
