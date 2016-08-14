@@ -1,3 +1,4 @@
+
 .navbar, #logout-button {
     margin-bottom: 0;
     background-color: #3498db;
@@ -21,7 +22,7 @@
     height: 55px !important;
 }
 
-.navbar-default .navbar-toggle {
+.navbar-default .navbar-toggle, #logout-button {
     border-color: transparent;
     color: #fff !important;
 }
@@ -68,18 +69,34 @@ body {
   border: none;
 }
 
-#error-messages ul {
-  list-style-type: none;
+#error-messages {
+  padding-top: 50px;
 }
 
 #space-list {
   list-style-type: none;
 }
 
+#wrap {
+  min-height: 100%;
+}
+
+#main {
+  overflow:auto;
+  padding-bottom:150px; /* this needs to be bigger than footer height*/
+}
+
 .footer {
   position: relative;
   margin-top: -150px; /* negative value of footer height */
-  height: 150px;
+  height: 100px;
   clear:both;
   padding-top:20px;
-} 
+}
+
+footer {
+    position: fixed;
+    height: 100px;
+    bottom: 0;
+    width: 100%;
+}

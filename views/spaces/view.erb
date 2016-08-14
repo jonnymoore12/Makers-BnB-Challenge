@@ -1,19 +1,28 @@
-<div class="container-fluid">
-  <div class="">
-    <h1 class="classy-font"><%= @space.name %><br></h1>
-    <pre><%= @space.description %></pre>
-    <h2>£<%= @space.price %> Per Night</h2>
-    <h3>Available From: <%= @space.available_from.strftime("%d-%m-%Y") %></h3>
-    <h3>Available To: <%= @space.available_to.strftime("%d-%m-%Y") %></h3>
+<div class="container-fluid clear-top" id="wrap">
+  <div class="row well" id="main">
+    <div class="col-md-4">
+      <h1 class="classy-font"><%= @space.name %><br></h1>
+      <pre><%= @space.description %></pre>
+      <h2>£<%= @space.price %> Per Night</h2>
+      <h3>Available From: <%= @space.available_from.strftime("%d-%m-%Y") %></h3>
+      <h3>Available To: <%= @space.available_to.strftime("%d-%m-%Y") %></h3>
+
+      <form action="/requests" method="post">
+        <input type="hidden" name="space_id" value="<%= @space.id %>">
+        <div class="input-group">
+          <label for="start_date" class="input-group-addon">Pick a night: </label>
+          <input name="start_date" type="date" required class="form-control" size="30">
+        </div>
+        <br>
+        <button type="submit" value="Request to Book" class="btn btn-info">Request to Book <i class="fa fa-check-circle"></i></button>
+      </form>
+    </div>
+
+    <div class="col-md-6 col-md-offset-1">
+      <img src="http://www.engraversnetwork.com/files/placeholder.jpg" alt="ROOM" class="img-responsive pull-right" />
+    </div>
   </div>
 
-  <div class="">
-    <form action="/requests" method="post">
-      <input type="hidden" name="space_id" value="<%= @space.id %>">
-      <label for="start_date">Pick a night: </label>
-      <input name="start_date" type="date" required>
-      <br>
-      <button type="submit" value="Request to Book">Request to Book <i class="fa fa-check-circle"></i></button>
-    </form>
-  </div>
+
 </div>
+<br>
