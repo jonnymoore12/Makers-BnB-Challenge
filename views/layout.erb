@@ -48,7 +48,7 @@
     </nav>
 
 
-      <div id="error-messages" class="text-center">
+      <div id="error-messages" class="text-center" role="alert">
         <% if current_user %>
           <p class="text-center alert-success" id="login-message">You're logged in as <%= current_user.email %>!</p>
         <% end %>

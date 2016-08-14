@@ -23,7 +23,10 @@
             Price per night: £<%= space.price %>
           </p>
         </div>
-        <button type="button" name="view-space" class="btn btn-default">View This Space <i class="fa fa-home"></i></button>
+        <form class="" action="/spaces/<%= space.id %>">
+          <button type="submit" name="view-space" class="btn btn-default" >View This Space <i class="fa fa-home"></i></button>
+        </form>
+
       </li>
     <% end %>
   </ul>
