@@ -14,10 +14,10 @@
     <% if current_user.id == @individual_request.host_id %>
       <div class="btn-group classy-font">
         <form action="/requests/approve/<%=@individual_request.id%>" method="post" class="btn btn-lg btn-success">
-          <button type="submit" value="Approve Request" class="btn">Approve Request</button>
+          <button type="submit" value="Approve Request" class="btn btn-no-border">Approve Request</button>
         </form>
         <form action="/requests/deny/<%=@individual_request.id%>" method="post" class="btn btn-lg btn-danger">
-          <button type="submit" value="Deny Request" class="btn">Deny Request</button>
+          <button type="submit" value="Deny Request" class="btn btn-no-border">Deny Request</button>
         </form>
       </div>
 

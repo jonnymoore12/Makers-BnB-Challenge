@@ -100,3 +100,11 @@ footer {
     bottom: 0;
     width: 100%;
 }
+
+.ul-got-no-style {
+  list-style-type: none;
+}
+
+.btn-no-border {
+  border: none;
+}
