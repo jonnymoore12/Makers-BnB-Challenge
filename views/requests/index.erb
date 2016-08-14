@@ -1,6 +1,6 @@
 <ul id="sent-requests">
   <% @sent_requests.each do |request| %>
-    <h2>
+    <h2 class="classy-font">
       Sent request for: #<%= request.id %> <a href="/requests/<%=request.id%>"><%= request.space.name %></a>
     </h2>
     <li>Status: <%= request.status %></li>

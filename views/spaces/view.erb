@@ -1,7 +1,7 @@
 <div class="container-fluid">
   <div class="">
-    <h1 class=""><%= @space.name %><br></h1>
-    <p><%= @space.description %></p>
+    <h1 class="classy-font"><%= @space.name %><br></h1>
+    <pre><%= @space.description %></pre>
     <h2>£<%= @space.price %> Per Night</h2>
     <h3>Available From: <%= @space.available_from.strftime("%d-%m-%Y") %></h3>
     <h3>Available To: <%= @space.available_to.strftime("%d-%m-%Y") %></h3>
