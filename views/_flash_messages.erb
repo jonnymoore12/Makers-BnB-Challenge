@@ -1,0 +1,24 @@
+<div class="row">
+  <div class="col-md-12">
+    <div id="error-messages" class="text-center" role="alert">
+      <% if current_user %>
+        <p class="text-center alert-info" id="login-message">You're logged in as <%= current_user.email %>!</p>
+      <% end %>
+
+      <% if flash[:logout] %>
+        <p id="logout" class="alert-info"><%= flash[:logout] %> </p>
+      <% end %>
+
+      <% if flash[:notice] %>
+        <p class="notice alert-danger"><%= flash[:notice] %></p>
+      <% end %>
+
+      <% if flash[:error] %>
+        <% flash[:error].each do |error| %>
+          <p class="error alert-danger"><%= error %></p>
+        <% end %>
+      <% end %>
+
+    </div>
+  </div>
+</div>
