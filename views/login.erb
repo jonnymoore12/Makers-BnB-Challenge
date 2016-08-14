@@ -1,9 +1,18 @@
-<form action="/sessions" method="post">
-  <label for="email"> email: </label>
-  <input name="email" type="email"/>
+<div class="container-fluid jumbotron">
+  <div class="text-center well">
+    <form action="/sessions" method="post" class="form-inline">
+      <div class="form-group">
+        <label for="email">Email: </label>
+        <input name="email" type="email" placeholder="Enter Email" class="form-control"/>
+      </div>
 
-  <label for="password"> password: </label>
-  <input name="password" type="password" />
+      <div class="form-group">
+        <label for="password">Password: </label>
+        <input name="password" type="password" placeholder="Enter Password" class="form-control"/>
+      </div>
 
-  <button value="Log In" type="submit"> Log In! </button>
-</form>
+
+      <button value="Log In" type="submit" class="btn btn-primary classy-font">Log In <i class=" fa fa-sign-in"></i></button>
+    </form>
+  </div>
+</div>

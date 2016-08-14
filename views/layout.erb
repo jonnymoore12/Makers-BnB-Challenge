@@ -50,22 +50,22 @@
 
       <div id="error-messages" class="text-center">
         <% if current_user %>
-          <p class="text-center text-muted" id="login-message">You're logged in as <%= current_user.email %>!</p>
+          <p class="text-center alert-success" id="login-message">You're logged in as <%= current_user.email %>!</p>
         <% end %>
 
         <% if flash[:logout] %>
-          <div id="logout" class="text-danger"><%= flash[:logout] %> </div>
+          <div id="logout" class="alert-info"><%= flash[:logout] %> </div>
         <% end %>
 
         <% if flash[:notice] %>
-          <div class="notice text-danger"><%= flash[:notice] %></div>
+          <div class="notice alert-danger"><%= flash[:notice] %></div>
         <% end %>
 
         <% if flash[:error] %>
           <% flash[:error].each do |error| %>
-            <ul>
-              <li class="error text-danger"><%= error %></li>
-            </ul>
+
+              <p class="error alert-danger"><%= error %></p>
+
           <% end %>
         <% end %>
 

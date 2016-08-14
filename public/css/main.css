@@ -71,3 +71,12 @@ body {
 #error-messages ul {
   list-style-type: none;
 }
+
+#space-list {
+  list-style-type: none;
+}
+
+footer {
+  margin-top: 20px;
+  padding-top: 20px;
+}
