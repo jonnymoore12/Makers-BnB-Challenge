@@ -70,9 +70,9 @@ body {
   border: none;
 }
 
-#error-messages {
+/*#error-messages {
   padding-top: 50px;
-}
+}*/
 
 #space-list {
   list-style-type: none;
