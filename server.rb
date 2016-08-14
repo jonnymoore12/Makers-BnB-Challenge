@@ -1,10 +1,14 @@
 class BnB < Sinatra::Base
 
+  register Sinatra::Flash
+  register Sinatra::Partial
+
   enable :sessions
   set :session_secret, 'super_secret'
+  set :partial_template_engine, :erb
+  enable :partial_underscores
   use Rack::MethodOverride
 
-  register Sinatra::Flash
 
   helpers do
     def current_user

@@ -1,0 +1,33 @@
+<nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="fa fa-bars"></span>
+      </button>
+      <a class="navbar-brand" href="/"><img src="http://i68.tinypic.com/a3dndf.jpg" alt="logo" class="img img-responsive main-logo"/></a>
+    </div>
+
+    <div id="myNavbar" class="collapse navbar-collapse">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="/" alt="Home">Home</a></li>
+        <li><a href="/spaces" alt="Spaces">Spaces</a></li>
+      <% if current_user %>
+        <li><a href="/requests" alt="Your requests">Your requests</a></li>
+        <li>
+          <form action='/sessions' method='post'>
+            <input type="hidden" name="_method" value="delete" />
+            <button id="logout-button" type="submit" value="Log Out">Log Out</button>
+          </form>
+        </li>
+
+      <% else %>
+      <li><a href="/" alt="signup">Sign Up</a></li>
+      <li>
+        <a href="/sessions/new" >Log In</a>
+      </li>
+      <% end %>
+        <!-- <li></li> -->
+      </ul>
+    </div>
+  </div>
+</nav>
